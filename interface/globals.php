@@ -384,7 +384,7 @@ if (!empty($glrow)) {
         } elseif ($gl_name == 'css_header') {
             //Escape css file name using 'attr' for security (prevent XSS).
             if (!file_exists($webserver_root . '/public/themes/' . attr($gl_value))) {
-                $gl_value = 'style_light.css';
+                $gl_value = 'style_cobalt_blue.css';
             }
             $GLOBALS[$gl_name] = $web_root . '/public/themes/' . attr($gl_value) . '?v=' . $v_js_includes;
             $GLOBALS['compact_header'] = $web_root . '/public/themes/compact_' . attr($gl_value) . '?v=' . $v_js_includes;
@@ -528,9 +528,9 @@ if (!empty($glrow)) {
   // exist yet.  This will happen in sql_upgrade.php on upgrading to the
   // first release containing this table.
     $GLOBALS['language_menu_login'] = true;
-    $GLOBALS['language_menu_showall'] = true;
-    $GLOBALS['language_menu_show'] = array('English (Standard)','Swedish');
-    $GLOBALS['language_default'] = "English (Standard)";
+    $GLOBALS['language_menu_showall'] = false;
+    $GLOBALS['language_menu_show'] = array('French (Canadian)','English (Standard)');
+    $GLOBALS['language_default'] = "French (Canadian)";
     $GLOBALS['translate_layout'] = true;
     $GLOBALS['translate_lists'] = true;
     $GLOBALS['translate_gacl_groups'] = true;

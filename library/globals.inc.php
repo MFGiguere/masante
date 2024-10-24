@@ -575,7 +575,7 @@ $GLOBALS_METADATA = array(
         'login_tagline_text' => [
             xl('Login Page Tagline') . "*",
             'text',
-            xl("The most popular open-source Electronic Health Record and Medical Practice Management solution."),
+            xl("Un portail patient interactif: projet de recherche de l'Université Laval mené par Maxe F. Giguère."),
             xl("Tagline text on the login page")
         ],
 
@@ -639,14 +639,14 @@ $GLOBALS_METADATA = array(
         'language_default' => array(
             xl('Default Language'),
             'lang',                           // data type
-            'English (Standard)',             // default = english
+            'French (Canadian)',             // default = english
             xl('Default language if no other is allowed or chosen.')
         ),
 
         'language_menu_showall' => array(
             xl('All Languages Allowed'),
             'bool',                           // data type
-            '1',                              // default = true
+            '0',                              // default = true
             xl('Allow all available languages as choices on menu at login.')
         ),
 

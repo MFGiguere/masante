@@ -23,6 +23,12 @@ $fa-font-path: "../assets/@fortawesome/fontawesome-free/webfonts";
 
 @import "../navigation-slide/future-bootstrap";
 
+.btn-primary {
+  color: #fff;
+  background-color: #af1004;
+  border-color: #af1004;
+}
+
 :root {
   --tabTopBorderWidth: 0.2em;
   --gray300: #cdcdcd;

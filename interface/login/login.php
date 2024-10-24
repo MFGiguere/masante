@@ -123,7 +123,7 @@ function getDefaultLanguage(): array
     }
 
     $id = 1;
-    $desc = "English";
+    $desc = "French";
 
     if (count($langs) == 1) {
         $id = $langs[0]["lang_id"];

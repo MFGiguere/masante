@@ -1,3 +1,10 @@
+# Personal notes
+sql/database.sql configures database for first iteration
+Tout ce qui est frontend est dans
+
+
+# Default readme
+
 ![Syntax Status](https://github.com/openemr/openemr/workflows/Syntax/badge.svg?branch=master)
 ![Styling Status](https://github.com/openemr/openemr/workflows/Styling/badge.svg?branch=master)
 ![Testing Status](https://github.com/openemr/openemr/workflows/Test/badge.svg?branch=master)
