@@ -384,7 +384,7 @@ if (!empty($glrow)) {
         } elseif ($gl_name == 'css_header') {
             //Escape css file name using 'attr' for security (prevent XSS).
             if (!file_exists($webserver_root . '/public/themes/' . attr($gl_value))) {
-                $gl_value = 'style_cobalt_blue.css';
+                $gl_value = 'style_ulaval_red.css';
             }
             $GLOBALS[$gl_name] = $web_root . '/public/themes/' . attr($gl_value) . '?v=' . $v_js_includes;
             $GLOBALS['compact_header'] = $web_root . '/public/themes/compact_' . attr($gl_value) . '?v=' . $v_js_includes;
@@ -618,6 +618,9 @@ $GLOBALS['include_de_identification'] = 0;
 // if the file has the word "login" in the source code file name,
 // don't include the authentication module - we do this to avoid
 // include loops.
+
+// Ajoute le français comme défaut
+$GLOBALS['default_language'] = 'fr_FR';
 
 // EMAIL SETTINGS
 $GLOBALS['SMTP_Auth'] = !empty($GLOBALS['SMTP_USER']);

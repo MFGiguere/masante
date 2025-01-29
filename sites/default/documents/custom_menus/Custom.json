@@ -16,6 +16,22 @@
     ]
   },
   {
+    "label": "Portal",
+    "menu_id": "port",
+    "target": "port",
+    "url": "/interface/main/lorem.php",
+    "children": [],
+    "requirement": 0,
+    "acl_req": [
+      "patients",
+      "appt"
+    ],
+    "global_req_strict": [
+      "!disable_calendar",
+      "!ippf_specific"
+    ]
+  },
+  {
     "label": "Finder",
     "menu_id": "fin0",
     "target": "fin",

@@ -23,11 +23,6 @@
                                 } ?>">
                 <a class="nav-link" href="index.php"><?php echo xlt("Home"); ?></a>
             </li>
-            <li class="nav-item <?php if ($tab == "claims") {
-                echo "active";
-                                } ?>">
-                <a class="nav-link" href="claims.php"><?php echo xlt("Claims"); ?></a>
-            </li>
             <li class="nav-item <?php if ($tab == "eras") {
                 echo "active";
                                 } ?>">

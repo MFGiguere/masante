@@ -3731,7 +3731,7 @@ INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES (
 
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default, codes ) VALUES ('sex', 'Female', 'Female', 1, 0, 'HL7:F');
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default, codes ) VALUES ('sex', 'Male', 'Male', 2, 0, 'HL7:M');
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default, codes ) VALUES ('sex', 'NB', 'Third', 3, 0, 'HL7:NB');
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default, codes ) VALUES ('sex', 'NB', 'Nonbinary', 3, 0, 'HL7:NB');
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default, codes ) VALUES ('sex', 'UNK', 'Unknown', 10, 0, 'HL7:UNK');
 
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default, notes ) VALUES ('marital', 'married', 'Married', 1, 0, 'M');
@@ -3798,58 +3798,19 @@ INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES (
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('boolean', '1', 'Yes', 2, 0);
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('country', 'USA', 'USA', 1, 0);
 
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','AL','Alabama'             , 1,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','AK','Alaska'              , 2,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','AZ','Arizona'             , 3,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','AR','Arkansas'            , 4,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','CA','California'          , 5,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','CO','Colorado'            , 6,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','CT','Connecticut'         , 7,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','DE','Delaware'            , 8,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','DC','District of Columbia', 9,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','FL','Florida'             ,10,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','GA','Georgia'             ,11,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','HI','Hawaii'              ,12,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','ID','Idaho'               ,13,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','IL','Illinois'            ,14,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','IN','Indiana'             ,15,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','IA','Iowa'                ,16,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','KS','Kansas'              ,17,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','KY','Kentucky'            ,18,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','LA','Louisiana'           ,19,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','ME','Maine'               ,20,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MD','Maryland'            ,21,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MA','Massachusetts'       ,22,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MI','Michigan'            ,23,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MN','Minnesota'           ,24,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MS','Mississippi'         ,25,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MO','Missouri'            ,26,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MT','Montana'             ,27,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NE','Nebraska'            ,28,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NV','Nevada'              ,29,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NH','New Hampshire'       ,30,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NJ','New Jersey'          ,31,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NM','New Mexico'          ,32,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NY','New York'            ,33,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NC','North Carolina'      ,34,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','ND','North Dakota'        ,35,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','OH','Ohio'                ,36,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','OK','Oklahoma'            ,37,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','OR','Oregon'              ,38,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','PA','Pennsylvania'        ,39,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','PR','Puerto Rico'         ,39,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','RI','Rhode Island'        ,40,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','SC','South Carolina'      ,41,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','SD','South Dakota'        ,42,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','TN','Tennessee'           ,43,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','TX','Texas'               ,44,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','UT','Utah'                ,45,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','VT','Vermont'             ,46,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','VA','Virginia'            ,47,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','WA','Washington'          ,48,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','WV','West Virginia'       ,49,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','WI','Wisconsin'           ,50,0);
-INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','WY','Wyoming'             ,51,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','AL','Alberta'              , 2,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','CB','Colombie-Britannique' , 3,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','IP','Île-du-Prince-Édouard', 4,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','MB','Manitoba'            , 5,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NB','Nouveau-Brunswick'          , 6,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NE','Nouvelle-Écosse'         , 7,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NU','Nunavut'            , 8,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','ON','Ontario', 9,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','QC','Québec'             ,1,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','Sk','Saskatchewan'             ,10,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','TN','Terre-Neuve-et-Labrador'             ,11,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','NO','Territoires du Nord-Ouest'              ,12,0);
+INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('state','YK','Yukon'               ,13,0);
 
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('refsource','Patient'      ,'Patient'      , 1,0);
 INSERT INTO list_options ( list_id, option_id, title, seq, is_default ) VALUES ('refsource','Employee'     ,'Employee'     , 2,0);
@@ -5070,11 +5031,24 @@ INSERT INTO list_options ( list_id, option_id, title, seq, codes ) VALUES ('reac
 -- County
 
 INSERT INTO list_options (list_id, option_id, title) VALUES ('lists','county','County');
-INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','adair','ADAIR','001', '10');
-INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','andrew','ANDREW','003', '20');
-INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','atchison','ATCHISON','005', '30');
-INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','audrain','AUDRAIN','007', '40');
-INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','barry','BARRY','009', '50');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','BSL','Bas-St-Laurent','001', '10');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','SLS','Saguenay-Lac-Saint-Jean','002', '20');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','CNQ','Capitale-Nationale (Québec)','003', '30');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','MAU','Mauricie','004', '40');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','EST','Estrie','005', '50');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','MTL','Montréal','006', '60');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','OU','Outaouais','007', '70');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','AT','Abitibi-Témiscamingue','008', '80');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','CN','Côte-Nord','009', '90');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','NDQ','Nord-du-Quebec','010', '100');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','GIM','Gaspésie–Îles-de-la-Madeleine','011', '110');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','CA','Chaudière-Appalaches','012', '120');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','LVL','Laval','013', '130');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','LAN','Lanaudière','014', '140');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','LAU','Laurentides','015', '150');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','MON','Montérégie','016', '160');
+INSERT INTO list_options (list_id, option_id, title, notes, seq) VALUES ('county','CQ','Centre-du-Québec','017', '170');
+
 
 -- Immunization Manufacturers
 
