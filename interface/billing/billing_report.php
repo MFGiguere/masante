@@ -342,26 +342,35 @@ $partners = $x->_utility_array($x->x12_partner_factory());
             f.bn_mark.disabled = !can_mark;
         }
 
-        // Process a click to go to an encounter.
-        function toencounter(pid, pubpid, pname, enc, datestr, dobstr) {
-            top.restoreSession();
-            encurl = 'patient_file/encounter/encounter_top.php?set_encounter=' + encodeURIComponent(enc) +
-                '&pid=' + encodeURIComponent(pid);
-            paturl = 'patient_file/summary/demographics_full.php?pid=' + encodeURIComponent(pid);
-            parent.left_nav.setPatient(pname, pid, pubpid, '', dobstr);
-            parent.left_nav.setEncounter(datestr, enc, 'enc');
-            parent.left_nav.loadFrame('enc2', 'enc', encurl);
-            parent.left_nav.loadFrame('dem1', 'pat', paturl);
-        }
-
-        // Process a click to go to an patient.
-        function topatient(pid, pubpid, pname, enc, datestr, dobstr) {
-            top.restoreSession();
-            paturl = 'patient_file/summary/insurance_edit.php?pid=' + encodeURIComponent(pid);
-            parent.left_nav.setPatient(pname, pid, pubpid, '', dobstr);
-            parent.left_nav.loadFrame('ens1', 'enc',
-                'patient_file/history/encounters.php?pid=' + encodeURIComponent(pid));
-            parent.left_nav.loadFrame('dem1', 'pat', paturl);
+        async function toPatient(type, pid, pubpid, pname, enc, datestr, dobstr, enc_pid_array, enc_date_array, cal_cat_array) {
+            const encUrl = 'patient_file/encounter/encounter_top.php?set_encounter=' + encodeURIComponent(enc) + '&pid=' + encodeURIComponent(pid);
+            if (type == 'enc') {
+                patUrl = 'patient_file/summary/demographics.php?pid=' + encodeURIComponent(pid);
+            } else {
+                patUrl = 'patient_file/summary/insurance_edit.php?pid=' + encodeURIComponent(pid);
+            }
+            pid = parseInt(pid, 10);
+            enc = parseInt(enc, 10);
+            // Restore the session (getSessionValue calls restoreSession()) and load the encounter
+            let curpid = await top.getSessionValue('pid');
+            try {
+                if (curpid != pid) { // set patient
+                    top.clearPatient(false);
+                    await parent.left_nav.setPatient(pname, pid, pubpid, '', dobstr);
+                    await parent.asyncLoadFrame('dem1', 'pat', patUrl);
+                    await parent.left_nav.setPatientEncounter(enc_pid_array, enc_date_array, cal_cat_array);
+                }
+                if (type == 'enc') { // to encounter
+                    await parent.left_nav.setEncounter(datestr, enc, 'enc');
+                    await parent.asyncLoadFrame('enc2', 'enc', encUrl);
+                    await parent.activateTabByName('enc', true);
+                } else { // to insurance
+                    await parent.asyncLoadFrame('ens1', 'enc', 'patient_file/history/encounters.php?pid=' + encodeURIComponent(pid));
+                    await parent.activateTabByName('pat', true);
+                }
+            } catch (error) {
+                console.error('Failed to process patient:', error);
+            }
         }
 
         function popMBO(pid, enc, mboid) {
@@ -1075,15 +1084,40 @@ $partners = $x->_utility_array($x->x12_partner_factory());
                                 <?php
                                 $lhtml .= "<div class='button-group'>";
                                 // Not sure why the next section seems to do nothing except post "To Encounter" button 2/17/09 JCH
-                                $lhtml .= "<a class='btn btn-sm btn-primary' role='button'" . "href='javascript:
-                                    window.toencounter(" . attr_js($iter['enc_pid']) . "," . attr_js($name['pubpid']) . "," . attr_js($ptname) . "," . attr_js($iter['enc_encounter']) . "," . attr_js(oeFormatShortDate($raw_encounter_date)) . "," . attr_js(" " . xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD'])) . ");
-                                    top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($iter['enc_pid']) . "],EncounterDateArray[" . attr($iter['enc_pid']) . "], CalendarCategoryArray[" . attr($iter['enc_pid']) . "]);
-                                    top.setEncounter(" . attr_js($iter['enc_encounter']) . ");
-                                    '>" . xlt('Encounter') . " " . text(oeFormatShortDate($raw_encounter_date)) . "</a>";
+                                $lhtml .= "<a class='btn btn-sm btn-primary' role='button'" .
+                                    "href='javascript: window.toPatient(" .
+                                        "\"enc\"" . "," .
+                                        attr_js($iter['enc_pid']) . "," .
+                                        attr_js($name['pubpid']) . "," .
+                                        attr_js($ptname) . "," .
+                                        attr_js($iter['enc_encounter']) . "," .
+                                        attr_js(oeFormatShortDate($raw_encounter_date)) . "," .
+                                        attr_js(" " . xl('DOB') . ": " .
+                                            oeFormatShortDate($name['DOB_YMD']) . " " .
+                                            xl('Age') . ": " .
+                                            getPatientAge($name['DOB_YMD'])) . "," .
+                                        "EncounterIdArray[" . attr_js($iter['enc_pid']) . "]" . "," .
+                                        "EncounterDateArray[" . attr_js($iter['enc_pid']) . "]" . "," .
+                                        "CalendarCategoryArray[" . attr_js($iter['enc_pid']) . "]" .
+                                    ");" . " '>" . xlt('Encounter') . " " . text(oeFormatShortDate($raw_encounter_date)) . "</a>";
 
                                 // Changed "To xxx" buttons to allow room for encounter date display 2/17/09 JCH
-                                $lhtml .= "<a class='btn btn-sm btn-primary' role='button' " . "href=\"javascript:window.topatient(" . attr_js($iter['enc_pid']) . "," . attr_js($name['pubpid']) . "," . attr_js($ptname) . "," . attr_js($iter['enc_encounter']) . "," . attr_js(oeFormatShortDate($raw_encounter_date)) . "," . attr_js(" " . xl('DOB') . ": " . oeFormatShortDate($name['DOB_YMD']) . " " . xl('Age') . ": " . getPatientAge($name['DOB_YMD'])) . ");
-                                    top.window.parent.left_nav.setPatientEncounter(EncounterIdArray[" . attr($iter['enc_pid']) . "],EncounterDateArray[" . attr($iter['enc_pid']) . "], CalendarCategoryArray[" . attr($iter['enc_pid']) . "])\">" . xlt('Insurance') . "</a>";
+                                $lhtml .= "<a class='btn btn-sm btn-primary' role='button' " .
+                                    "href='javascript:window.toPatient(" .
+                                        "\"ins\"" . "," .
+                                        attr_js($iter['enc_pid']) . "," .
+                                        attr_js($name['pubpid']) . "," .
+                                        attr_js($ptname) . "," .
+                                        attr_js($iter['enc_encounter']) . "," .
+                                        attr_js(oeFormatShortDate($raw_encounter_date)) . "," .
+                                        attr_js(" " . xl('DOB') . ": " .
+                                            oeFormatShortDate($name['DOB_YMD']) . " " .
+                                            xl('Age') . ": " .
+                                            getPatientAge($name['DOB_YMD'])) . "," .
+                                        "EncounterIdArray[" . attr_js($iter['enc_pid']) . "]" . "," .
+                                        "EncounterDateArray[" . attr_js($iter['enc_pid']) . "]" . "," .
+                                        "CalendarCategoryArray[" . attr_js($iter['enc_pid']) . "]" .
+                                    ");" . " '>" . xlt('Insurance') . "</a>";
                                 $is_edited = $iter['mboid'] ? 'btn-success' : 'btn-secondary';
                                 $title = $iter['mboid'] ? xlt("This claim has HCFA 1500 miscellaneous billing options") : xlt("Click to add HCFA 1500 miscellaneous billing options");
                                 $lhtml .= "<a class='btn btn-sm $is_edited' role='button' title='" . attr($title) . "' onclick='popMBO(" . attr_js($iter['enc_pid']) . "," . attr_js($iter['enc_encounter']) . "," . attr_js($iter['mboid']) . "); return false;'>" . xlt('MBO ') . "</a>";
