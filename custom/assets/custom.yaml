@@ -1,6 +1,0 @@
-assets: 
-    always-load:
-        basePath: '%webroot%/custom/assets/'
-        link: css/custom.css
-        script: js/colors.js
-        autoload: true

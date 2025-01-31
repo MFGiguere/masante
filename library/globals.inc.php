@@ -578,7 +578,7 @@ $GLOBALS_METADATA = array(
         'login_tagline_text' => [
             xl('Login Page Tagline') . "*",
             'text',
-            xl("Un portail patient interactif: projet de recherche de l'Université Laval mené par Maxe F. Giguère."),
+            xl("Un portail patient interactif propulsé par Maxe F. Giguère."),
             xl("Tagline text on the login page")
         ],
 
@@ -642,7 +642,7 @@ $GLOBALS_METADATA = array(
         'language_default' => array(
             xl('Default Language'),
             'lang',                           // data type
-            'French (Canadian)',             // default = english
+            'French (Standard)',             // default = english
             xl('Default language if no other is allowed or chosen.')
         ),
 
