@@ -1,17 +1,22 @@
 /* Bootstrap Code */
 
 /* Default Colors */
-$blue: $darker;
-$indigo: #6610f2;
-$purple: $palepurple;
-$pink: #e83e8c;
-$red: #dc3545;
-$orange: #fd7e14;
-$yellow: #ffc107;
-$green: #28a745;
-$teal: #20c997;
-$cyan: #17a2b8;
+$blue:    #80b3ff !default;
+$indigo:  #ac7cf8 !default;
+$cyan:    #72e8ff !default; 
+$pink:    #d87dab !default;
+
+// Couleurs accents
+$red:     #bf4080 !default;
+$orange:  #db965e !default;
+$purple:  #9880c4 !default;
+$yellow:  #cfab3c !default;
+$green:   #388561 !default;
+$teal:    #72c9af !default;
+
 $black: #000;
+
+
 
 /* Default Grays */
 $gray-100: #f8f9fa;

@@ -725,3 +725,7 @@ if (!empty($GLOBALS['user_debug']) && ((int) $GLOBALS['user_debug'] > 1)) {
     error_reporting(error_reporting() & ~E_WARNING & ~E_NOTICE & ~E_USER_WARNING & ~E_USER_DEPRECATED);
     ini_set('display_errors', 1);
 }
+
+
+$GLOBALS['openemr_name'] = "MaSanté Connectée";
+$GLOBALS['enforce_signin_email'] = FALSE;

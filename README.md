@@ -2,7 +2,7 @@
 sql/database.sql : configure la database pour la première itération. 
 Tout ce qui est frontend est dans
 openemr/interface/main/tabs/menu/menus/standard.json: pour la barre de navigation
-portal test unam  maxeautomationpython@gmail.com  Pass1234
+portal test unam  maxeautomationpython@gmail.com  Pass1234 AsdDsa1  9E1a@Z0ooDic
 
 # Todo
 Change french canadian to standard

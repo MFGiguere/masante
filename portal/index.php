@@ -88,7 +88,7 @@ if (!empty($_REQUEST['service_auth'] ?? null)) {
             'service_auth' => $_GET['service_auth'],
             'target' => $_GET['target'] ?? null,
             'csrf_token' => CsrfUtils::collectCsrfToken('autologin'),
-            'pagetitle' => xl("OpenEMR Patient Portal"),
+            'pagetitle' => xl("MaSanté Connectée"),
             'images_static_relative' => $GLOBALS['images_static_relative'] ?? ''
         ]);
         exit;
@@ -583,7 +583,7 @@ if (!(isset($_SESSION['password_update']) || (!empty($GLOBALS['portal_two_pass_r
                     <?php } ?>
                 <?php } ?>
             <?php } ?>
-            <legend class="text-center bg-light text-dark pt-2 py-1"><h2><?php echo $GLOBALS['openemr_name'] . ' ' . xlt('Portal Login'); ?></h2></legend>
+            <legend class="text-center bg-light text-dark pt-2 py-1"><h2><?php echo $GLOBALS['openemr_name'] . "<br>\n" . xlt('Connexion au portail'); ?></h2></legend>
             <form class="mx-1" action="get_patient_info.php" method="POST" onsubmit="return process()">
                 <?php if (isset($redirectUrl)) { ?>
                     <input id="redirect" type="hidden" name="redirect" value="<?php echo attr($redirectUrl); ?>" />
@@ -640,7 +640,7 @@ if (!(isset($_SESSION['password_update']) || (!empty($GLOBALS['portal_two_pass_r
                 } ?>
                 </div>
                 <div class="col col-md col-sm">
-                    <button class="btn btn-success btn-block" type="submit"><?php echo xlt('Log In'); ?></button>
+                    <button class="btn btn-primary btn-block" type="submit"><?php echo xlt('Log In'); ?></button>
                     <?php if (!empty($GLOBALS['portal_onsite_two_register']) && !empty($GLOBALS['google_recaptcha_site_key']) && !empty($GLOBALS['google_recaptcha_secret_key'])) { ?>
                         <button class="btn btn-secondary btn-block" onclick="location.replace('./account/verify.php?site=<?php echo attr_url($_SESSION['site_id']); ?>')"><?php echo xlt('Register'); ?></button>
                     <?php } ?>
